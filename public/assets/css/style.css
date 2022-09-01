@@ -1,0 +1,161 @@
+a.reset {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card--custom {
+  position: relative;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card--dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #343a40;
+}
+
+table.table {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+table.table td,
+table.table th {
+  vertical-align: middle;
+}
+
+.nav-tabs > .nav-link {
+  color: inherit;
+}
+
+.feedback-block {
+  font-size: 96px;
+  text-align: center;
+  line-height: 1;
+}
+
+#preloader {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999999;
+  color: #fff;
+  background: #343a40;
+}
+
+#preloader .jumper {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+}
+
+#preloader .jumper > div {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 100%;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: jumper 1s 0s linear infinite;
+          animation: jumper 1s 0s linear infinite;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+#preloader .jumper > div:nth-child(2) {
+  -webkit-animation-delay: 0.33333s;
+          animation-delay: 0.33333s;
+}
+
+#preloader .jumper > div:nth-child(3) {
+  -webkit-animation-delay: 0.66666s;
+          animation-delay: 0.66666s;
+}
+
+@-webkit-keyframes jumper {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes jumper {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.social-links .link {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.social-links .link i {
+  color: #fff;
+}
+
+#alert-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 25%;
+  margin: 0 0 10px 10px;
+  font-size: 14px;
+}
+
+#alert-box > .alert {
+  margin: 10px 0 0 0;
+}
+
+ul.pagination li.page-item.active .page-link {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+ul.pagination li.page-item.active .page-link:hover {
+  color: #fff;
+}
+
+ul.pagination li.page-item .page-link {
+  color: #343a40;
+}
+
+ul.pagination li.page-item .page-link:hover {
+  color: #1d2124;
+}
+
