@@ -38,7 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
     # For authorized users only
     Route::group(['middleware' => 'user'], function () {
         Route::get('/feedback', [FeedbackController::class, 'ShowFeedbackPage'])->name('feedbackform');
-        Route::post('/feedback', [FeedbackController::class, 'SendFeedback'])->name('feedback');
+        Route::middleware('can_send')->group(function () {
+            #Feedback
+            Route::post('/feedback', [FeedbackController::class, 'SendFeedback'])->name('feedback');
+        });
+
+
 
         # Route for logout 
         Route::get('/logout', function () {

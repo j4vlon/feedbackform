@@ -17,4 +17,14 @@ class Feedbacks extends Model
     protected $fillable = [
         'status',
     ];
+
+    /**
+     * Get the feedback author.
+     *
+     * @return \App\Models\User
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

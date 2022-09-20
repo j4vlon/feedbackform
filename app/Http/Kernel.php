@@ -66,6 +66,6 @@ class Kernel extends HttpKernel
 
         'user' => \App\Http\Middleware\IsNotAdmin::class,
         'admin' => \App\Http\Middleware\IsAdmin::class,
-        'cansend' => \App\Http\Middleware\CanSend::class
+        'can_send' => \App\Http\Middleware\CanSend::class
     ];
 }

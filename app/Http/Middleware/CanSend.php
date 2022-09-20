@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class CanSend
 {
@@ -16,6 +18,9 @@ class CanSend
      */
     public function handle(Request $request, Closure $next)
     {
+        if (!Auth::user()->canSend()) {
+            return redirect()->route('home')->with('danger', 'Отправка сообщений возможна не больше 1 раза в сутки');
+        }
         return $next($request);
     }
 }

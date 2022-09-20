@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feedbacks;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FeedbackRequest;
 use Illuminate\Http\Request;
+use App\Models\{Feedbacks, User};
+use Carbon\Carbon;
 
 class FeedbackController extends Controller
 {
@@ -14,6 +15,12 @@ class FeedbackController extends Controller
         return view('users.feedbackform');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\FeedbackRequest  $request
+     * @return \Illuminate\Http\Response
+     */
     public function SendFeedback(FeedbackRequest $request)
     {
         $user = Auth::user();
@@ -27,6 +34,9 @@ class FeedbackController extends Controller
             $path = $request->file_url->store('uploads', 'public');
             $feedback->file_url = '/storage/' . $path;
         }
+
+        Auth::user()->updateLastFeedback();
+
         $feedback->save();
         return redirect()->back()->with('success', 'Ваша заявка принята!');
     }
