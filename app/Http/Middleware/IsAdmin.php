@@ -18,7 +18,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->role !== 'admin') {
+        if (!$user->role) {
             return redirect()->route('home')->with('danger', 'У вас нет прав администратора!');
         }
 

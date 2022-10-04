@@ -34,8 +34,16 @@ class FeedbackController extends Controller
             $path = $request->file_url->store('uploads', 'public');
             $feedback->file_url = '/storage/' . $path;
         }
+        /**
+         * Update the last feedback time for user.
+         */
+        $format = 'Y-m-d H:i:s';
+        $user->last_feedback = Carbon::now()->format($format);
 
-        Auth::user()->updateLastFeedback();
+        /**
+         * Save the last feedback time for user.
+         */
+        $user->save();
 
         $feedback->save();
         return redirect()->back()->with('success', 'Ваша заявка принята!');

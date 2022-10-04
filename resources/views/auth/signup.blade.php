@@ -5,6 +5,7 @@
     style="width: 60%; margin: 0 auto"
 >
     @csrf
+    <h2>Форма регистрации</h2>
     <div class="form-group">
         <input
             type="text"
@@ -43,13 +44,12 @@
         @endif
     </div>
 
-    <a href="{{ route('login') }}">Login</a
-    ><input
+    <input
         type="submit"
-        class="btnRegister"
+        class="btn btn-primary"
         value="Register"
         style="margin-top: 0 !important"
-    />
+    /> <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
 </form>
 
 @endsection

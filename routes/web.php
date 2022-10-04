@@ -32,18 +32,16 @@ use App\Http\Controllers\AdminController;
 Route::group(['middleware' => 'auth'], function () {
     # For users with admin role only
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/admin', [AdminController::class, 'ShowAdminPage'])->name('admin.admin');
+        Route::get('/admin', [AdminController::class, 'ShowAdminPage'])->name('admin');
         Route::post('/admin/{id}', [AdminController::class, 'CheckStatus'])->name('checkstatus');
     });
     # For authorized users only
     Route::group(['middleware' => 'user'], function () {
-        Route::get('/feedback', [FeedbackController::class, 'ShowFeedbackPage'])->name('feedbackform');
+        Route::get('/feedback', [FeedbackController::class, 'ShowFeedbackPage']);
         Route::middleware('can_send')->group(function () {
             #Feedback
             Route::post('/feedback', [FeedbackController::class, 'SendFeedback'])->name('feedback');
         });
-
-
 
         # Route for logout 
         Route::get('/logout', function () {
@@ -55,8 +53,3 @@ Route::group(['middleware' => 'auth'], function () {
         return view('home');
     })->name('home');
 });
-
-
-// Route::group(['middleware' => 'cansend'], function () {
-//     Route::get('/user', 'FeedbackController@ShowAdminPage')->name('user');
-// });

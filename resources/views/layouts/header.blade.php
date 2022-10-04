@@ -24,10 +24,12 @@
         <script src="{{ asset('assets/js/script.js') }}" defer></script>
     </head>
     <body>
-        <div class="container mb-4">
+        <div class="wrapper">
+            <div class="container">
             <div class="row">
                 <div class="col-md-12">@yield('content')</div>
             </div>
+        </div>
         </div>
     </body>
 </html>
