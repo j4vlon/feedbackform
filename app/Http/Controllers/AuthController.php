@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function GetLogin()
     {
         if (Auth::check()) {
-            return redirect()->intended(route('feedbackform'));
+            return redirect()->intended(route('feedback'));
         }
         return view('auth.signin');
     }
@@ -23,7 +23,7 @@ class AuthController extends Controller
         $formFields = $request->only(['email', 'password']);
 
         if (Auth::attempt($formFields)) {
-            return redirect()->intended(route('feedbackform'));
+            return redirect()->intended(route('feedback'));
         }
         return redirect(route('auth.signin'))->withErrors([
             'email' => 'Не удалось авторизоваться'
@@ -33,7 +33,7 @@ class AuthController extends Controller
     public function ViewRegistration()
     {
         if (Auth::check()) {
-            return redirect()->intended(route('feedbackform'));
+            return redirect()->intended(route('feedback'));
         }
         return view('auth.signup');
     }
