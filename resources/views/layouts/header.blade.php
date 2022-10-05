@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/admin">Feedbacks</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/registration">Registration</a>
+                </li>
             </ul>
         </div>
     </nav>
