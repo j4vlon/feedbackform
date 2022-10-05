@@ -15,9 +15,9 @@
                 <th scope="row">{{ $user->id }}</th>
                 <td>{{ $user->name }}</td>
                 @if (!$user->role)
-                    <td>Админ</td>
-                @else
                     <td>Пользователь</td>
+                @else
+                    <td>Админ</td>
                 @endif
                 <td>{{ $user->email }}</td>
                 <td>
