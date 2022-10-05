@@ -36,19 +36,23 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/admin/{id}', [AdminController::class, 'CheckStatus'])->name('checkstatus');
     });
     # For authorized users only
-    Route::group(['middleware' => 'user'], function () {
-        Route::get('/feedback', [FeedbackController::class, 'ShowFeedbackPage']);
-        Route::middleware('can_send')->group(function () {
-            #Feedback
-            Route::post('/feedback', [FeedbackController::class, 'SendFeedback'])->name('feedback');
-        });
-
-        # Route for logout 
-        Route::get('/logout', function () {
-            Auth::logout();
-            return redirect('/login');
-        })->name('logout');
+    Route::get('/feedback', [FeedbackController::class, 'ShowFeedbackPage']);
+    Route::middleware('can_send')->group(function () {
+        #Feedback
+        Route::post('/feedback', [FeedbackController::class, 'SendFeedback'])->name('feedback');
     });
+    Route::get('createadmin', [AdminController::class, 'CreateAdminView']);
+    Route::post('createadmin/{id}', [AdminController::class, 'CreateAdmin'])->name('createadmin');
+
+    # Route for logout 
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect('/login');
+    })->name('logout');
+
+    // Route::group(['middleware' => 'user'], function () {
+    // });
+
     Route::get('/home', function () {
         return view('home');
     })->name('home');
