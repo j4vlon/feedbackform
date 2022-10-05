@@ -1,12 +1,13 @@
 @extends('layouts.header') @section('title', 'Авторизация') @section('content')
 
-<form action="" method="POST">
+<form method="POST" style="width: 60%; margin: 0 auto">
     @csrf
+    <h2>Форма аутентификации</h2>
     <div class="form-group">
         <input
             type="text"
             class="form-control"
-            placeholder="Your Email *"
+            placeholder="Введите email"
             value=""
             name="email"
         />
@@ -19,7 +20,7 @@
         <input
             type="password"
             class="form-control"
-            placeholder="Your Password *"
+            placeholder="Введите пароль"
             value=""
             name="password"
         />
@@ -28,7 +29,7 @@
         @endif
     </div>
     <div class="form-group">
-        <input type="submit" class="btnSubmit" value="Login" />
+        <input type="submit" class="btn btn-primary" value="Login" />
     </div>
 </form>
 

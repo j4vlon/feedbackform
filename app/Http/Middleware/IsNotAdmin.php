@@ -17,10 +17,10 @@ class IsNotAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // $user_role = Auth::user();
-        // if ($user_role->role !== 'admin') {
-        //     return redirect(route('users.feedbackform'));
-        // }
+        $user = Auth::user();
+        if ($user->role) {
+            return redirect()->route('feedback');
+        }
         return $next($request);
     }
 }

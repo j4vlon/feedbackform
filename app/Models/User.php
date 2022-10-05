@@ -94,17 +94,4 @@ class User extends Authenticatable
 
         return $hours >= $this->limitInHours ? true : false;
     }
-
-    /**
-     * Update the last feedback time.
-     * 
-     * @param string $format
-     * @return void
-     */
-    public function updateLastFeedback($format = 'Y-m-d H:i:s')
-    {
-        $this->update([
-            'last_feedback' => Carbon::now()->format($format)
-        ]);
-    }
 }
