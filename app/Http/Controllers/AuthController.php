@@ -34,7 +34,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->intended(route('feedback'));
         }
-        return view('auth.signin');
+        return view('auth.signup');
     }
 
     public function PostRegistration(SignupRequest $request)
