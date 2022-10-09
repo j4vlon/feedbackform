@@ -30,7 +30,6 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $user->role = $request->input('role');
-        // dd($request->input('role'));
         $user->save();
         return redirect()->back();
     }

@@ -12,13 +12,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    <link rel="shortcut icon" href="{{ asset('images/ff-favicon.ico') }}" type="image/x-icon" />
-
-    <!-- Scripts -->
-    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/fontawesome-kit.js') }}" defer></script>
-    <script src="{{ asset('assets/js/script.js') }}" defer></script>
 </head>
 
 <body>
@@ -30,17 +23,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/createadmin">User List <span class="sr-only">(current)</span></a>
-                </li>
+                {{-- Hide UserList page for users without admin permission --}}
+                @auth
+                    @if (Auth()->user()->role)
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/createadmin">User List</a>
+                        </li>
+                    @endif
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link" href="/feedback">Feedback</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">Feedbacks</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/registration">Registration</a>
