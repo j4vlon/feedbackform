@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\{SignupRequest, SigninRequest};
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,7 +34,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->intended(route('feedback'));
         }
-        return view('auth.signup');
+        return view('auth.signin');
     }
 
     public function PostRegistration(SignupRequest $request)
