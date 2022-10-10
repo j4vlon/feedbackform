@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FeedbackRequest;
-use Illuminate\Http\Request;
-use App\Models\{Feedbacks, User};
+use App\Models\{Feedbacks};
 use Carbon\Carbon;
 
 class FeedbackController extends Controller
 {
+
+    /**
+     * Display the feedback form.
+     *
+     */
     public function ShowFeedbackPage()
     {
         return view('users.feedbackform');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created request in DB.
      *
      * @param  \App\Http\FeedbackRequest  $request
      * @return \Illuminate\Http\Response
