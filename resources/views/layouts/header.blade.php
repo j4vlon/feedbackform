@@ -29,6 +29,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/createadmin">User List</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Feedbacks List</a>
+                        </li>
                     @endif
                 @endauth
                 <li class="nav-item">
